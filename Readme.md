@@ -1,0 +1,1 @@
+Repozytorium do projektu z uczenia maszynowego WSB
