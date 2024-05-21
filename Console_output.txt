@@ -1,2 +1,85 @@
+WYNIKI DLA 10 EPOK
+-----------------------------------------------------------------------------------------------------------------------------------
+
 Found 1600 images belonging to 2 classes.
 Found 576 images belonging to 2 classes.
+Epoch 1/10
+50/50 [==============================] - 31s 601ms/step - loss: 0.7143 - accuracy: 0.6150 - val_loss: 0.6443 - val_accuracy: 0.6458
+Epoch 2/10
+50/50 [==============================] - 20s 405ms/step - loss: 0.5401 - accuracy: 0.7394 - val_loss: 0.5450 - val_accuracy: 0.7361
+Epoch 3/10
+50/50 [==============================] - 19s 385ms/step - loss: 0.5301 - accuracy: 0.7481 - val_loss: 0.6299 - val_accuracy: 0.6858
+Epoch 4/10
+50/50 [==============================] - 20s 401ms/step - loss: 0.5187 - accuracy: 0.7594 - val_loss: 0.5725 - val_accuracy: 0.6997
+Epoch 5/10
+50/50 [==============================] - 21s 411ms/step - loss: 0.4982 - accuracy: 0.7569 - val_loss: 0.6014 - val_accuracy: 0.7066
+Epoch 6/10
+50/50 [==============================] - 19s 386ms/step - loss: 0.4576 - accuracy: 0.7875 - val_loss: 0.6830 - val_accuracy: 0.6962
+Epoch 7/10
+50/50 [==============================] - 20s 407ms/step - loss: 0.4530 - accuracy: 0.7869 - val_loss: 0.4991 - val_accuracy: 0.7674
+Epoch 8/10
+50/50 [==============================] - 20s 405ms/step - loss: 0.4254 - accuracy: 0.8112 - val_loss: 0.4826 - val_accuracy: 0.7830
+Epoch 9/10
+50/50 [==============================] - 20s 396ms/step - loss: 0.4130 - accuracy: 0.8194 - val_loss: 0.5577 - val_accuracy: 0.7170
+Epoch 10/10
+50/50 [==============================] - 20s 400ms/step - loss: 0.4121 - accuracy: 0.8213 - val_loss: 0.4755 - val_accuracy: 0.7812
+18/18 [==============================] - 3s 146ms/step - loss: 0.4807 - accuracy: 0.7830
+Validation loss: 0.4807227551937103
+Validation accuracy: 0.7829861044883728
+18/18 [==============================] - 3s 149ms/step - loss: 0.4850 - accuracy: 0.7674
+Final model loss: 0.4849511384963989
+Final model accuracy: 0.7673611044883728
+
+
+
+WYNIKI DLA 20 EPOK
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Found 1600 images belonging to 2 classes.
+Found 576 images belonging to 2 classes.
+Epoch 1/20
+50/50 [==============================] - 21s 412ms/step - loss: 0.6619 - accuracy: 0.6263 - val_loss: 0.6003 - val_accuracy: 0.6927
+Epoch 2/20
+50/50 [==============================] - 20s 394ms/step - loss: 0.5688 - accuracy: 0.7156 - val_loss: 0.5558 - val_accuracy: 0.7222
+Epoch 3/20
+50/50 [==============================] - 20s 401ms/step - loss: 0.5262 - accuracy: 0.7544 - val_loss: 0.5734 - val_accuracy: 0.7135
+Epoch 4/20
+50/50 [==============================] - 21s 413ms/step - loss: 0.4721 - accuracy: 0.7731 - val_loss: 0.5580 - val_accuracy: 0.7274
+Epoch 5/20
+50/50 [==============================] - 21s 419ms/step - loss: 0.4425 - accuracy: 0.8044 - val_loss: 0.4482 - val_accuracy: 0.8003
+Epoch 6/20
+50/50 [==============================] - 20s 392ms/step - loss: 0.4209 - accuracy: 0.8200 - val_loss: 0.4561 - val_accuracy: 0.7795
+Epoch 7/20
+50/50 [==============================] - 20s 390ms/step - loss: 0.3957 - accuracy: 0.8319 - val_loss: 0.4578 - val_accuracy: 0.7969
+Epoch 8/20
+50/50 [==============================] - 20s 391ms/step - loss: 0.3738 - accuracy: 0.8381 - val_loss: 0.4471 - val_accuracy: 0.8021
+Epoch 9/20
+50/50 [==============================] - 19s 382ms/step - loss: 0.3591 - accuracy: 0.8213 - val_loss: 0.4581 - val_accuracy: 0.7944
+Epoch 10/20
+50/50 [==============================] - 19s 389ms/step - loss: 0.3489 - accuracy: 0.8363 - val_loss: 0.4865 - val_accuracy: 0.7795
+Epoch 11/20
+50/50 [==============================] - 20s 393ms/step - loss: 0.3356 - accuracy: 0.8556 - val_loss: 0.5111 - val_accuracy: 0.7743
+Epoch 12/20
+50/50 [==============================] - 19s 386ms/step - loss: 0.3230 - accuracy: 0.8631 - val_loss: 0.5209 - val_accuracy: 0.7847
+Epoch 13/20
+50/50 [==============================] - 20s 402ms/step - loss: 0.2949 - accuracy: 0.8744 - val_loss: 0.4704 - val_accuracy: 0.8090
+Epoch 14/20
+50/50 [==============================] - 20s 397ms/step - loss: 0.2667 - accuracy: 0.8881 - val_loss: 0.5301 - val_accuracy: 0.7708
+Epoch 15/20
+50/50 [==============================] - 19s 385ms/step - loss: 0.2519 - accuracy: 0.8956 - val_loss: 0.4773 - val_accuracy: 0.7986
+Epoch 16/20
+50/50 [==============================] - 19s 383ms/step - loss: 0.2387 - accuracy: 0.9000 - val_loss: 0.4940 - val_accuracy: 0.7917
+Epoch 17/20
+50/50 [==============================] - 19s 385ms/step - loss: 0.2423 - accuracy: 0.9050 - val_loss: 0.5183 - val_accuracy: 0.7951
+Epoch 18/20
+50/50 [==============================] - 20s 390ms/step - loss: 0.2356 - accuracy: 0.9112 - val_loss: 0.4699 - val_accuracy: 0.8142
+Epoch 19/20
+50/50 [==============================] - 19s 384ms/step - loss: 0.2234 - accuracy: 0.9131 - val_loss: 0.4888 - val_accuracy: 0.7934
+Epoch 20/20
+50/50 [==============================] - 20s 395ms/step - loss: 0.1757 - accuracy: 0.9300 - val_loss: 0.5106 - val_accuracy: 0.8212
+18/18 [==============================] - 3s 158ms/step - loss: 0.5072 - accuracy: 0.8247
+Validation loss: 0.5072218179702759
+Validation accuracy: 0.8246527910232544
+18/18 [==============================] - 3s 176ms/step - loss: 0.5027 - accuracy: 0.8281
+Final model loss: 0.5027084946632385
+Final model accuracy: 0.828125
