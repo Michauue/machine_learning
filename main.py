@@ -236,6 +236,7 @@ plot_tsne(train_features.reshape(train_features.shape[0], -1), train_labels, 'VG
 # Wizualizacja cech wyekstrahowanych przez VGG16 z danych walidacyjnych
 plot_tsne(validation_features.reshape(validation_features.shape[0], -1), validation_labels, 'VGG16 Features (Validation)')
 
+# Funkcja pozwalająca na wizualizację cech pierwszej warstwy modelów
 def visualize_conv_layer(model, layer_name, image):
     intermediate_layer_model = Model(inputs=model.input,
                                      outputs=model.get_layer(layer_name).output)
