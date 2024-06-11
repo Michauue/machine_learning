@@ -185,3 +185,40 @@ def plot_history(history1, history2, model1_name='Model 1', model2_name='Model 2
 
 # Porównanie twojego modelu i VGG16 na wykresach
 plot_history(history, history_vgg16, model1_name='My Model', model2_name='VGG16')
+
+
+def visualize_conv_layer(model, layer_name, image):
+    intermediate_layer_model = Model(inputs=model.input,
+                                     outputs=model.get_layer(layer_name).output)
+    intermediate_output = intermediate_layer_model.predict(image)
+    
+    num_filters = intermediate_output.shape[-1]
+    size = intermediate_output.shape[1]
+    display_grid = np.zeros((size, size * num_filters))
+    
+    for i in range(num_filters):
+        x = intermediate_output[0, :, :, i]
+        x -= x.mean()
+        x /= (x.std() + 1e-5)
+        x *= 64
+        x += 128
+        x = np.clip(x, 0, 255).astype('uint8')
+        display_grid[:, i * size : (i + 1) * size] = x
+    
+    scale = 20. / num_filters
+    plt.figure(figsize=(scale * num_filters, scale))
+    plt.title(layer_name)
+    plt.grid(False)
+    plt.imshow(display_grid, aspect='auto', cmap='viridis')
+
+# Wczytanie przykładowego obrazu
+sample_image = next(train_generator)[0][0]
+sample_image = np.expand_dims(sample_image, axis=0)
+
+# Wizualizacja cech dla własnego modelu
+visualize_conv_layer(model, 'conv2d', sample_image)
+
+# Wizualizacja cech dla modelu VGG16
+visualize_conv_layer(vgg16_model, 'block1_conv1', sample_image)
+
+plt.show()
