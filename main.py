@@ -155,23 +155,27 @@ print(f'Final model loss: {loss}')
 print(f'Final model accuracy: {accuracy}')
 
 # Wizualizacja historii treningu
-def plot_history(history, model_name):
+def plot_history(history1, history2, model1_name, model2_name):
     plt.figure(figsize=(12, 5))
 
     # Wykres dokładności
     plt.subplot(1, 2, 1)
-    plt.plot(history.history['accuracy'], label='Training Accuracy')
-    plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
-    plt.title(f'{model_name} Accuracy')
+    plt.plot(history1.history['accuracy'], label=f'{model1_name} Training Accuracy')
+    plt.plot(history1.history['val_accuracy'], label=f'{model1_name} Validation Accuracy')
+    plt.plot(history2.history['accuracy'], label=f'{model2_name} Training Accuracy')
+    plt.plot(history2.history['val_accuracy'], label=f'{model2_name} Validation Accuracy')
+    plt.title('Training and Validation Accuracy')
     plt.xlabel('Epochs')
     plt.ylabel('Accuracy')
     plt.legend()
 
     # Wykres straty
     plt.subplot(1, 2, 2)
-    plt.plot(history.history['loss'], label='Training Loss')
-    plt.plot(history.history['val_loss'], label='Validation Loss')
-    plt.title(f'{model_name} Loss')
+    plt.plot(history1.history['loss'], label=f'{model1_name} Training Loss')
+    plt.plot(history1.history['val_loss'], label=f'{model1_name} Validation Loss')
+    plt.plot(history2.history['loss'], label=f'{model2_name} Training Loss')
+    plt.plot(history2.history['val_loss'], label=f'{model2_name} Validation Loss')
+    plt.title('Training and Validation Loss')
     plt.xlabel('Epochs')
     plt.ylabel('Loss')
     plt.legend()
@@ -179,11 +183,8 @@ def plot_history(history, model_name):
     plt.tight_layout()
     plt.show()
 
-# Wizualizacja historii treningu dla modelu VGG16
-plot_history(history_vgg16, 'VGG16')
-
-# Wizualizacja historii treningu dla własnego modelu
-plot_history(history, 'My Model')
+# Wizualizacja historii treningu dla modelu VGG16 i własnego modelu na jednym wykresie
+plot_history(history, history_vgg16, 'My Model', 'VGG16')
 
 # Funkcja do ekstrakcji cech z obrazów przy użyciu VGG-16
 def extract_features(model, generator, steps):
@@ -234,3 +235,39 @@ plot_tsne(train_features.reshape(train_features.shape[0], -1), train_labels, 'VG
 
 # Wizualizacja cech wyekstrahowanych przez VGG16 z danych walidacyjnych
 plot_tsne(validation_features.reshape(validation_features.shape[0], -1), validation_labels, 'VGG16 Features (Validation)')
+
+def visualize_conv_layer(model, layer_name, image):
+    intermediate_layer_model = Model(inputs=model.input,
+                                     outputs=model.get_layer(layer_name).output)
+    intermediate_output = intermediate_layer_model.predict(image)
+    
+    num_filters = intermediate_output.shape[-1]
+    size = intermediate_output.shape[1]
+    display_grid = np.zeros((size, size * num_filters))
+    
+    for i in range(num_filters):
+        x = intermediate_output[0, :, :, i]
+        x -= x.mean()
+        x /= (x.std() + 1e-5)
+        x *= 64
+        x += 128
+        x = np.clip(x, 0, 255).astype('uint8')
+        display_grid[:, i * size : (i + 1) * size] = x
+    
+    scale = 20. / num_filters
+    plt.figure(figsize=(scale * num_filters, scale))
+    plt.title(layer_name)
+    plt.grid(False)
+    plt.imshow(display_grid, aspect='auto', cmap='viridis')
+
+# Wczytanie przykładowego obrazu
+sample_image = next(train_generator)[0][0]
+sample_image = np.expand_dims(sample_image, axis=0)
+
+# Wizualizacja cech dla własnego modelu
+visualize_conv_layer(model, 'conv2d', sample_image)
+
+# Wizualizacja cech dla modelu VGG16
+visualize_conv_layer(vgg16_model, 'block1_conv1', sample_image)
+
+plt.show()
