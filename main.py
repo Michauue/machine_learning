@@ -207,7 +207,7 @@ train_features, train_labels = extract_features(feature_extractor, train_generat
 validation_features, validation_labels = extract_features(feature_extractor, validation_generator, validation_generator.samples // validation_generator.batch_size)
 
 # Klasyfikator regresji logistycznej
-classifier = make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000))
+classifier = make_pipeline(StandardScaler(), LogisticRegression(max_iter=10000))
 classifier.fit(train_features.reshape(train_features.shape[0], -1), train_labels)
 
 # Ocena klasyfikatora na danych walidacyjnych
